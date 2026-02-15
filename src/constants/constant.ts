@@ -1,0 +1,272 @@
+import { AiFillDatabase } from "react-icons/ai";
+import { LucideHammer } from "lucide-react";
+import {
+  SiPandas,
+  SiPlotly,
+  SiNumpy,
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss,
+  SiCplusplus,
+  SiC,
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiNodedotjs,
+  SiBun,
+  SiMysql,
+  SiRedis,
+  SiSupabase,
+  SiCodepen,
+  SiNextdotjs,
+  SiGithub,
+  SiHashnode,
+  SiInstagram,
+  SiLeetcode,
+  SiLinkedin,
+  SiMedium,
+  SiX,
+  SiFiverr,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
+
+import {
+  LucideBadge,
+  LucideMousePointerClick,
+  LucidePhoneCall,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+// =============================================================================
+// TYPE DEFINITIONS
+// =============================================================================
+
+export interface SocialLink {
+  href: string;
+  icon: IconType;
+  label: string;
+}
+
+export interface Project {
+  id: number;
+  name: string;
+  imageSrc: string;
+  techStacks: string;
+  description?: string;
+  githubLink: string;
+  liveLink?: string;
+}
+
+export interface SkillItem {
+  icon: IconType;
+  label: string;
+}
+
+export interface SkillCategory {
+  title: string;
+  icon: IconType | LucideIcon;
+  skills: SkillItem[];
+}
+
+export interface Internship {
+  role: string;
+  companyName: string;
+  fromDate: string;
+  toDate: string;
+  modeOfWork: string;
+  workDone: string[];
+  TechStack: string[];
+}
+
+export interface NavLink {
+  href: string;
+  label: string;
+}
+
+// =============================================================================
+// SOCIAL LINKS - Single Source of Truth
+// =============================================================================
+
+export const socialLinks: SocialLink[] = [
+  {
+    href: "https://github.com/Anshulsharmacode",
+    icon: SiGithub,
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/anshul-sharma-8386ansh",
+    icon: SiLinkedin,
+    label: "LinkedIn",
+  },
+  { href: "https://x.com/Anshulsh8386", icon: SiX, label: "X (Twitter)" },
+  {
+    href: "https://medium.com/@anshulsharmasde",
+    icon: SiMedium,
+    label: "Medium",
+  },
+];
+
+// =============================================================================
+// PROJECTS DATA
+// =============================================================================
+
+export const projectsData: Project[] = [
+  {
+    id: 1,
+    name: "PDF Chatbot using RAG and LLM",
+    imageSrc:
+      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=2070&auto=format&fit=crop",
+    techStacks: "Python, Gemini, RAG, Ollama",
+    description:
+      "Built a chat-with-PDF app integrating Gemini with Retrieval-Augmented Generation (RAG). Used nomic-embed-text:latest from Ollama locally and optimized chat history with aggregation pipelines.",
+    githubLink: "https://github.com/Anshulsharmacode",
+  },
+  {
+    id: 2,
+    name: "Medicine Chatbot using RAG and LLM",
+    imageSrc:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
+    techStacks: "Python, LLM, RAG, Semantic Search",
+    description:
+      "Developed a medicine chatbot using Retrieval-Augmented Generation (RAG) and LLMs for accurate, real-time medical information with semantic and keyword search.",
+    githubLink: "https://github.com/Anshulsharmacode",
+  },
+  {
+    id: 3,
+    name: "Mysterious Message App",
+    imageSrc:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    techStacks: "Next.js, TypeScript, Auth, Email",
+    description:
+      "Anonymous messaging platform with AI suggestions, secure authentication, and email verification built with a modern full-stack architecture.",
+    githubLink: "https://github.com/Anshulsharmacode",
+  },
+  {
+    id: 4,
+    name: "Lung Cancer Classification (Major Project)",
+    imageSrc:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2070&auto=format&fit=crop",
+    techStacks: "Python, Random Forest, Gradient Boosting, Next.js",
+    description:
+      "Lung cancer classifier using CT scans with Random Forest and Gradient Boosting. Built a Next.js frontend for image input and prediction results.",
+    githubLink: "https://github.com/Anshulsharmacode",
+  },
+  {
+    id: 5,
+    name: "React Flow Interactive Guide",
+    imageSrc:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
+    techStacks: "React, React Flow, AI Suggestions",
+    description:
+      "Interactive decision-making web app built with React Flow and AI-based suggestions, ending with personalized recommendations.",
+    githubLink: "https://github.com/Anshulsharmacode",
+  },
+];
+
+export const linksData = [];
+
+export const skillCategories = [
+  {
+    title: "Full Stack",
+    icon: SiCodepen,
+    skills: [
+      { icon: SiReact, label: "React" },
+      { icon: SiNextdotjs, label: "Next.js" },
+      { icon: SiNodedotjs, label: "Node.js" },
+    ],
+  },
+  {
+    title: "AI/ML (Basics)",
+    icon: SiReact,
+    skills: [
+      { icon: SiPython, label: "Machine Learning Basics" },
+      { icon: SiCodepen, label: "Generative AI Integration" },
+      { icon: SiCodepen, label: "RAG and LLM Workflows" },
+    ],
+  },
+  {
+    title: "API Integration",
+    icon: SiNodedotjs,
+    skills: [
+      { icon: SiExpress, label: "RESTful APIs" },
+      { icon: SiJavascript, label: "Service Integration" },
+      { icon: SiTypescript, label: "Data Communication" },
+    ],
+  },
+  {
+    title: "Cloud (Basic)",
+    icon: SiCodepen,
+    skills: [
+      { icon: SiCodepen, label: "AWS Services" },
+      { icon: SiCodepen, label: "Cloud Deployment Basics" },
+    ],
+  },
+  {
+    title: "Database",
+    icon: AiFillDatabase,
+    skills: [
+      { icon: SiMongodb, label: "MongoDB" },
+      { icon: SiMysql, label: "Database Design" },
+      { icon: SiRedis, label: "Performance Optimization" },
+    ],
+  },
+  {
+    title: "Tools",
+    icon: SiGithub,
+    skills: [
+      { icon: SiGithub, label: "Git" },
+      { icon: SiCodepen, label: "VS Code" },
+      { icon: SiCodepen, label: "Agile Practices" },
+    ],
+  },
+];
+
+export const navigationItems = [
+  { to: "/skills", text: "SKILLS", icon: LucideHammer },
+  { to: "/projects", text: "PROJECTS", icon: LucideBadge },
+  {
+    to: "/important-links",
+    text: "IMPORTANT LINKS",
+    icon: LucideMousePointerClick,
+  },
+  // { to: '/qualifications', text: 'QUALIFICATIONS', icon: LucideSchool },
+  { to: "/contact", text: "CONTACT", icon: LucidePhoneCall },
+];
+
+export const internshipData = [
+  {
+    role: "Software Development Engineer Intern",
+    companyName: "AI Caller",
+    fromDate: "May 2025",
+    toDate: "Present",
+    modeOfWork: "Internship",
+    workDone: [
+      "Updated the internal flow-builder by experimenting with XState orchestration and later migrating to Pipecat for a more maintainable workflow.",
+      "Worked with distributed task processing where jobs enter SQS and are handled by worker services for call flow execution.",
+      "Managed duplicate call events in SQS by removing redundant jobs and triggering automated notifications for clean pipelines.",
+      "Implemented MongoDB aggregation pipelines to extract structured information from uploaded documents and expand the knowledge base.",
+      "Added REST API endpoints and backend logic to support new UI features and overall workflow usability.",
+      "Built workflow cloning to duplicate configurations, rules, and metadata with safe validation.",
+      "Developed a Firebase-based app with billing dashboard and secure workflow-management interfaces.",
+    ],
+    TechStack: [
+      "XState",
+      "Pipecat",
+      "AWS SQS",
+      "MongoDB",
+      "Firebase",
+      "Node.js",
+      "REST APIs",
+    ],
+  },
+];
+
+export const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/skills", label: "Skills" },
+  { href: "/internships", label: "Internships" },
+];
