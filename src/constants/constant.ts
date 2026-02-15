@@ -30,6 +30,26 @@ import {
   SiMedium,
   SiX,
   SiFiverr,
+  SiAxios,
+  SiFirebase,
+  SiGraphql,
+  SiJson,
+  SiPostman,
+  SiSwagger,
+  SiDocker,
+  SiGithubactions,
+  SiGooglecloud,
+  SiServerfault,
+  SiPostgresql,
+  SiPrisma,
+  SiAstra,
+  SiDjango,
+  SiFastapi,
+  SiGoogle,
+  SiLangchain,
+  SiNestjs,
+  SiOllama,
+  SiOpenai,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -118,7 +138,8 @@ export const projectsData: Project[] = [
   {
     id: 1,
     name: "PDF Chatbot using RAG and LLM",
-    imageSrc: "/pdf_bot/p2.png",
+    imageSrc:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80",
     gallery: [
       "/pdf_bot/p2.png",
       "/pdf_bot/p3.png",
@@ -134,8 +155,13 @@ export const projectsData: Project[] = [
   {
     id: 2,
     name: "Medicine Chatbot using RAG and LLM",
-    imageSrc: "/chat_bot/chat1.png",
-    gallery: ["/chat_bot/chat1.png", "/chat_bot/chat2.png", "/chat_bot/chat3.png"],
+    imageSrc:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80",
+    gallery: [
+      "/chat_bot/chat1.png",
+      "/chat_bot/chat2.png",
+      "/chat_bot/chat3.png",
+    ],
     techStacks: "Python, LLM, RAG, Semantic Search",
     description:
       "Developed a medicine chatbot using Retrieval-Augmented Generation (RAG) and LLMs for accurate, real-time medical information with semantic and keyword search.",
@@ -145,7 +171,8 @@ export const projectsData: Project[] = [
   {
     id: 3,
     name: "Mysterious Message App",
-    imageSrc: "/messageApp/me1.png",
+    imageSrc:
+      "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=1600&q=80",
     gallery: [
       "/messageApp/me1.png",
       "/messageApp/me2.png",
@@ -163,7 +190,8 @@ export const projectsData: Project[] = [
   {
     id: 4,
     name: "Lung Cancer Classification (Major Project)",
-    imageSrc: "/Major/m1.png",
+    imageSrc:
+      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
     gallery: [
       "/Major/m1.png",
       "/Major/m2.png",
@@ -181,7 +209,8 @@ export const projectsData: Project[] = [
   {
     id: 5,
     name: "React Flow Interactive Guide",
-    imageSrc: "/React_flow.png",
+    imageSrc:
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80",
     gallery: ["/React_flow.png"],
     techStacks: "React, React Flow, AI Suggestions",
     description:
@@ -196,20 +225,38 @@ export const linksData = [];
 export const skillCategories = [
   {
     title: "Full Stack",
-    icon: SiCodepen,
+    icon: SiJavascript,
     skills: [
       { icon: SiReact, label: "React" },
       { icon: SiNextdotjs, label: "Next.js" },
       { icon: SiNodedotjs, label: "Node.js" },
+      { icon: SiNestjs, label: "NestJS" },
+      { icon: SiDjango, label: "Django" },
+      { icon: SiFastapi, label: "FastAPI" },
     ],
   },
   {
-    title: "AI/ML (Basics)",
+    title: "Gen AI",
+    icon: SiOpenai,
+    skills: [
+      { icon: SiPython, label: "RAG (Retrieval-Augmented Generation)" },
+      { icon: SiOpenai, label: "LLM Integration" },
+      { icon: SiLangchain, label: "LLM Workflows (LangChain)" },
+      { icon: SiPython, label: "Agentic AI Systems" },
+      { icon: SiOpenai, label: "Function Calling" },
+      { icon: SiOpenai, label: "MCP Server" },
+      { icon: SiOllama, label: "Ollama" },
+      { icon: SiGoogle, label: "Google Gemini" },
+    ],
+  },
+
+  {
+    title: "ML (Basics)",
     icon: SiReact,
     skills: [
       { icon: SiPython, label: "Machine Learning Basics" },
-      { icon: SiCodepen, label: "Generative AI Integration" },
-      { icon: SiCodepen, label: "RAG and LLM Workflows" },
+      // { icon: SiCodepen, label: "Generative AI Integration" },
+      // { icon: SiCodepen, label: "RAG and LLM Workflows" },
     ],
   },
   {
@@ -217,34 +264,51 @@ export const skillCategories = [
     icon: SiNodedotjs,
     skills: [
       { icon: SiExpress, label: "RESTful APIs" },
-      { icon: SiJavascript, label: "Service Integration" },
-      { icon: SiTypescript, label: "Data Communication" },
+      { icon: SiGraphql, label: "GraphQL APIs" },
+      { icon: SiAxios, label: "API Consumption (Axios / Fetch)" },
+      { icon: SiPostman, label: "API Testing & Debugging" },
+      { icon: SiSwagger, label: "API Documentation (Swagger / OpenAPI)" },
+      { icon: SiFirebase, label: "Third-party API Integration" },
+      { icon: SiNodedotjs, label: "Middleware & Authentication (JWT / OAuth)" },
+      { icon: SiJson, label: "JSON & Data Serialization" },
     ],
   },
+
   {
     title: "Cloud (Basic)",
-    icon: SiCodepen,
+    icon: SiServerfault,
     skills: [
-      { icon: SiCodepen, label: "AWS Services" },
-      { icon: SiCodepen, label: "Cloud Deployment Basics" },
+      { icon: SiServerfault, label: "AWS (EC2, S3, IAM Basics)" },
+      { icon: SiGooglecloud, label: "Google Cloud (Compute Engine, Storage)" },
+      { icon: SiDocker, label: "Containerization Basics (Docker)" },
+      { icon: SiGithubactions, label: "CI/CD Basics" },
+      { icon: SiNodedotjs, label: "Cloud Deployment (Node.js Apps)" },
+      { icon: SiFirebase, label: "FireBase" },
     ],
   },
+
   {
     title: "Database",
     icon: AiFillDatabase,
     skills: [
-      { icon: SiMongodb, label: "MongoDB" },
-      { icon: SiMysql, label: "Database Design" },
-      { icon: SiRedis, label: "Performance Optimization" },
+      { icon: SiMongodb, label: "MongoDB (NoSQL)" },
+      { icon: SiMysql, label: "MySQL (Relational DB)" },
+      { icon: SiPostgresql, label: "PostgreSQL" },
+      { icon: SiAstra, label: "Astra DB(Vector DB)" },
+
+      // { icon: SiMongodb, label: "Mongo" },
+      // { icon: SiMysql, label: "Database Design & Normalization" },
+      // { icon: SiRedis, label: "Query Optimization & Indexing" },
     ],
   },
   {
     title: "Tools",
     icon: SiGithub,
     skills: [
-      { icon: SiGithub, label: "Git" },
+      { icon: SiGithub, label: "Git & GitHub" },
       { icon: SiCodepen, label: "VS Code" },
-      { icon: SiCodepen, label: "Agile Practices" },
+      { icon: SiDocker, label: "Docker" },
+      { icon: SiPostman, label: "Postman" },
     ],
   },
 ];
