@@ -28,10 +28,10 @@ export function Hero() {
               Available for new projects
             </div>
             <h1 className="text-5xl md:text-8xl font-display font-bold leading-[0.9] tracking-tight">
-              Anshul
+              Software
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent relative">
-                Sharma
+                Engineer
                 <Scribble className="absolute -bottom-4 left-0 w-full text-accent opacity-50" />
               </span>
             </h1>

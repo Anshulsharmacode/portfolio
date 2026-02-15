@@ -54,6 +54,7 @@ export interface Project {
   id: number;
   name: string;
   imageSrc: string;
+  gallery: string[];
   techStacks: string;
   description?: string;
   githubLink: string;
@@ -117,52 +118,76 @@ export const projectsData: Project[] = [
   {
     id: 1,
     name: "PDF Chatbot using RAG and LLM",
-    imageSrc:
-      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=2070&auto=format&fit=crop",
+    imageSrc: "/pdf_bot/p2.png",
+    gallery: [
+      "/pdf_bot/p2.png",
+      "/pdf_bot/p3.png",
+      "/pdf_bot/p4.png",
+      "/pdf_bot/p5.png",
+      "/pdf_bot/p6.png",
+    ],
     techStacks: "Python, Gemini, RAG, Ollama",
     description:
       "Built a chat-with-PDF app integrating Gemini with Retrieval-Augmented Generation (RAG). Used nomic-embed-text:latest from Ollama locally and optimized chat history with aggregation pipelines.",
-    githubLink: "https://github.com/Anshulsharmacode",
+    githubLink: "https://github.com/Anshulsharmacode/Pdf_ChatBoat",
   },
   {
     id: 2,
     name: "Medicine Chatbot using RAG and LLM",
-    imageSrc:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
+    imageSrc: "/chat_bot/chat1.png",
+    gallery: ["/chat_bot/chat1.png", "/chat_bot/chat2.png", "/chat_bot/chat3.png"],
     techStacks: "Python, LLM, RAG, Semantic Search",
     description:
       "Developed a medicine chatbot using Retrieval-Augmented Generation (RAG) and LLMs for accurate, real-time medical information with semantic and keyword search.",
-    githubLink: "https://github.com/Anshulsharmacode",
+    githubLink: "https://github.com/Anshulsharmacodes/Medicine-ai",
+    liveLink: "https://medicine-ui.vercel.app",
   },
   {
     id: 3,
     name: "Mysterious Message App",
-    imageSrc:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    imageSrc: "/messageApp/me1.png",
+    gallery: [
+      "/messageApp/me1.png",
+      "/messageApp/me2.png",
+      "/messageApp/me3.png",
+      "/messageApp/me4.png",
+      "/messageApp/me5.png",
+      "/messageApp/me6.png",
+    ],
     techStacks: "Next.js, TypeScript, Auth, Email",
     description:
       "Anonymous messaging platform with AI suggestions, secure authentication, and email verification built with a modern full-stack architecture.",
-    githubLink: "https://github.com/Anshulsharmacode",
+    githubLink: "https://github.com/Anshulsharmacode/message_app",
+    liveLink: "https://message-app-pied.vercel.app/",
   },
   {
     id: 4,
     name: "Lung Cancer Classification (Major Project)",
-    imageSrc:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2070&auto=format&fit=crop",
+    imageSrc: "/Major/m1.png",
+    gallery: [
+      "/Major/m1.png",
+      "/Major/m2.png",
+      "/Major/m3.png",
+      "/Major/m4.png",
+      "/Major/m5.png",
+      "/Major/m6.png",
+    ],
     techStacks: "Python, Random Forest, Gradient Boosting, Next.js",
     description:
       "Lung cancer classifier using CT scans with Random Forest and Gradient Boosting. Built a Next.js frontend for image input and prediction results.",
-    githubLink: "https://github.com/Anshulsharmacode",
+    githubLink: "https://github.com/Anshulsharmacode/final-Major",
+    liveLink: "https://final-major.vercel.app/",
   },
   {
     id: 5,
     name: "React Flow Interactive Guide",
-    imageSrc:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
+    imageSrc: "/React_flow.png",
+    gallery: ["/React_flow.png"],
     techStacks: "React, React Flow, AI Suggestions",
     description:
       "Interactive decision-making web app built with React Flow and AI-based suggestions, ending with personalized recommendations.",
-    githubLink: "https://github.com/Anshulsharmacode",
+    githubLink: "https://github.com/Anshulsharmacode/react-flow",
+    liveLink: "https://react-flow-orcin.vercel.app/",
   },
 ];
 
