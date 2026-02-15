@@ -36,18 +36,17 @@ export function Hero() {
               </span>
             </h1>
           </motion.div>
-
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-md font-light mx-auto md:mx-0"
           >
-            I build digital experiences that blend{" "}
-            <strong className="text-foreground">biomedical insight</strong> with{" "}
+            I build scalable, high-performance applications using{" "}
             <strong className="text-foreground">
-              modern software engineering
-            </strong>
+              modern full-stack technologies
+            </strong>{" "}
+            and <strong className="text-foreground">AI-driven solutions</strong>
             .
           </motion.p>
 
