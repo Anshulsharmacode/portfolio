@@ -55,6 +55,9 @@ export function Experience() {
                       <p className='text-sm font-medium text-primary'>
                         {item.companyName}
                       </p>
+                      <p className='text-xs font-medium text-muted-foreground'>
+                        {item.modeOfWork}
+                      </p>
                       <span className='font-mono text-xs text-muted-foreground mb-4 block'>
                         {item.fromDate} — {item.toDate}
                       </span>
@@ -65,12 +68,29 @@ export function Experience() {
                         i % 2 !== 0 ? "md:text-right" : ""
                       }`}
                     >
-                      {item.workDone.slice(0, 3).map((w, idx) => (
+                      {item.workDone.map((w, idx) => (
                         <li key={idx} className='leading-relaxed'>
                           {w}
                         </li>
                       ))}
                     </ul>
+
+                    {item.TechStack.length > 0 && (
+                      <div
+                        className={`mt-4 flex flex-wrap gap-2 ${
+                          i % 2 !== 0 ? "md:justify-end" : ""
+                        }`}
+                      >
+                        {item.TechStack.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className='text-[10px] font-mono bg-primary/10 text-primary px-2 py-1 rounded-full border border-primary/20'
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
