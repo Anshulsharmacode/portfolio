@@ -57,8 +57,11 @@ export function Work() {
   }, [activeGallery]);
 
   return (
-    <section id='work' className='py-24 px-6 relative bg-muted/30'>
-      <div className='max-w-7xl mx-auto mb-12 flex justify-between items-end'>
+    <section
+      id='work'
+      className='relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 px-5 py-16 backdrop-blur-sm md:px-8 md:py-20'
+    >
+      <div className='mx-auto mb-12 flex max-w-7xl items-end justify-between'>
         <div>
           <h2 className='text-4xl md:text-5xl font-display font-bold mb-4'>
             Featured Projects

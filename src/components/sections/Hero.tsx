@@ -14,8 +14,8 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center relative overflow-hidden px-6 pt-32 pb-12 md:py-0">
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <section className="relative flex min-h-[88vh] flex-col justify-center overflow-hidden px-2 pt-28 pb-12 md:px-0 md:pt-24">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-8 md:grid-cols-2 md:gap-14">
         {/* Left: Text */}
         <div className="space-y-8 relative z-10 order-2 md:order-1 text-center md:text-left">
           <motion.div
@@ -23,16 +23,16 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/80 px-3 py-1 text-sm font-medium text-primary backdrop-blur">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Available for new projects
             </div>
             <h1 className="text-5xl md:text-8xl font-display font-bold leading-[0.9] tracking-tight">
               Software
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent relative">
+              <span className="text-gradient relative">
                 Engineer
-                <Scribble className="absolute -bottom-4 left-0 w-full text-accent opacity-50" />
+                <Scribble className="absolute -bottom-4 left-0 w-full text-secondary opacity-45" />
               </span>
             </h1>
           </motion.div>
@@ -55,11 +55,11 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-wrap gap-4 justify-center md:justify-start"
+            className="flex flex-wrap gap-3 justify-center md:justify-start"
           >
             <button
               onClick={() => scrollTo("work")}
-              className="px-8 py-4 bg-foreground text-background rounded-lg font-medium hover:bg-foreground/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="rounded-xl bg-foreground px-7 py-3.5 font-medium text-background shadow-lg transition-all hover:-translate-y-0.5 hover:bg-foreground/90 hover:shadow-xl"
             >
               See My Work
             </button>
@@ -70,7 +70,7 @@ export function Hero() {
                   behavior: "smooth",
                 })
               }
-              className="px-8 py-4 border border-border rounded-lg font-medium hover:bg-secondary/10 transition-colors"
+              className="rounded-xl border border-border bg-card/70 px-7 py-3.5 font-medium transition-colors hover:bg-secondary/10"
             >
               Contact Me
             </button>
@@ -78,7 +78,7 @@ export function Hero() {
               href="https://drive.google.com/file/d/1RSQXwN-lF9jSPgup2F2GXgQMaqEjNe6Y/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border border-border rounded-lg font-medium hover:bg-primary/10 transition-colors flex items-center gap-2 text-primary"
+              className="flex items-center gap-2 rounded-xl border border-border bg-card/70 px-7 py-3.5 font-medium text-primary transition-colors hover:bg-primary/10"
             >
               <FileText className="w-4 h-4" /> Resume
             </a>
@@ -90,11 +90,11 @@ export function Hero() {
           {/* Desktop Decorative Elements */}
           <div className="hidden md:block">
             <FloatingElement depth={1} className="absolute top-10 right-10">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary to-purple-600 rounded-2xl rotate-12 opacity-80 backdrop-blur-md shadow-2xl" />
+              <div className="h-32 w-32 rounded-2xl bg-gradient-to-br from-secondary to-primary rotate-12 opacity-80 shadow-2xl" />
             </FloatingElement>
 
             <FloatingElement depth={2} className="absolute bottom-20 left-10">
-              <div className="w-24 h-24 bg-gradient-to-br from-secondary to-teal-400 rounded-full opacity-80 backdrop-blur-md shadow-xl border border-white/20" />
+              <div className="h-24 w-24 rounded-full border border-white/20 bg-gradient-to-br from-accent to-secondary opacity-80 shadow-xl" />
             </FloatingElement>
 
             <Star className="absolute top-20 left-20 text-accent w-12 h-12 animate-pulse" />
@@ -105,8 +105,8 @@ export function Hero() {
 
           {/* Photo - Centered */}
           <FloatingElement depth={0.5} className="relative z-10">
-            <div className="relative w-64 h-80 md:w-80 md:h-96 bg-card border border-border rounded-xl shadow-2xl p-3 md:rotate-[-6deg] group hover:rotate-0 transition-transform duration-500">
-              <div className="w-full h-full rounded-lg overflow-hidden relative">
+            <div className="group relative h-80 w-64 rounded-2xl border border-border bg-card p-3 shadow-2xl transition-transform duration-500 hover:rotate-0 md:h-96 md:w-80 md:rotate-[-6deg]">
+              <div className="relative h-full w-full overflow-hidden rounded-xl">
                 <Image
                   src="/image.png"
                   alt="Anshul Sharma"

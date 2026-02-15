@@ -50,11 +50,9 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased text-foreground overflow-x-hidden"
         )}
       >
-        {/* Dot Pattern Background */}
-        <div className='fixed inset-0 z-[-1] bg-grid-pattern pointer-events-none' />
         <ThemeProvider
           attribute='class'
-          defaultTheme='dark'
+          defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >

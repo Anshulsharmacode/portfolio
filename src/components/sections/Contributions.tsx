@@ -7,7 +7,10 @@ export function Contributions() {
   const { theme } = useTheme();
 
   return (
-    <section id='contributions' className='py-24 px-6 bg-background'>
+    <section
+      id='contributions'
+      className='rounded-3xl border border-border/70 bg-card/60 px-5 py-16 backdrop-blur-sm md:px-8 md:py-20'
+    >
       <div className='max-w-7xl mx-auto'>
         <div className='mb-12'>
           <h2 className='text-4xl md:text-5xl font-display font-bold mb-4'>
@@ -18,7 +21,7 @@ export function Contributions() {
           </p>
         </div>
 
-        <div className='flex justify-center w-full overflow-hidden border border-border/50 rounded-3xl p-8 bg-muted/20 hover:bg-muted/30 transition-colors'>
+        <div className='flex justify-center w-full overflow-hidden border border-border/50 rounded-3xl p-8 bg-background/70 hover:bg-background/90 transition-colors'>
           <div className='w-full overflow-x-auto flex justify-center'>
             {/* If the component is not exported as GitHubCalendar, this will fail. 
                  But based on error message, it likely IS exported, just not default. */}

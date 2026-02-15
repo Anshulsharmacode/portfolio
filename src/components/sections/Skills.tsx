@@ -4,7 +4,7 @@ import { Star } from "@/components/vectors";
 
 export function Skills() {
   return (
-    <section className="relative mx-4 my-12 overflow-hidden rounded-3xl bg-gradient-to-b from-secondary/10 via-background to-background px-6 py-24">
+    <section className="relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-b from-secondary/10 via-card/70 to-card/70 px-5 py-16 md:px-8 md:py-20">
       <div className="pointer-events-none absolute inset-0 bg-grid-pattern" />
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-14 text-center">

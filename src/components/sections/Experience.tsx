@@ -4,7 +4,10 @@ import { Scribble } from "@/components/vectors";
 
 export function Experience() {
   return (
-    <section id='experience' className='py-24 px-6'>
+    <section
+      id='experience'
+      className='rounded-3xl border border-border/70 bg-card/60 px-5 py-16 backdrop-blur-sm md:px-8 md:py-20'
+    >
       <div className='max-w-5xl mx-auto'>
         <div className='flex items-center gap-4 mb-20 justify-center'>
           <h2 className='text-4xl font-display font-bold'>Work Experience</h2>
