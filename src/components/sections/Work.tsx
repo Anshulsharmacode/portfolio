@@ -1,5 +1,4 @@
 "use client";
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { projectsData } from "@/constants/constant";
 import { Arrow } from "@/components/vectors";
 import { ChevronLeft, ChevronRight, ExternalLink, Github, X } from "lucide-react";
@@ -61,67 +60,79 @@ export function Work() {
       id='work'
       className='relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 px-5 py-16 backdrop-blur-sm md:px-8 md:py-20'
     >
-      <div className='mx-auto mb-12 flex max-w-7xl items-end justify-between'>
-        <div>
-          <h2 className='text-4xl md:text-5xl font-display font-bold mb-4'>
+      <div className='mx-auto mb-12 flex max-w-7xl items-end justify-between gap-8'>
+        <div className='space-y-4'>
+          <span className='inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary'>
+            Selected Builds
+          </span>
+          <h2 className='text-4xl md:text-5xl font-display font-bold'>
             Featured Projects
           </h2>
           <p className='text-muted-foreground text-lg max-w-xl'>
             Technical projects focused on AI, full-stack development, and practical problem solving.
           </p>
         </div>
-        <Arrow className='hidden md:block w-24 h-24 text-primary rotate-90' />
+        <Arrow className='hidden md:block h-24 w-24 rotate-90 text-primary' />
       </div>
 
-      <BentoGrid className='max-w-7xl mx-auto'>
+      <div className='mx-auto grid max-w-7xl grid-cols-1 items-start gap-5 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6'>
         {allProjects.map((project, i) => (
-          <BentoGridItem
+          <article
             key={i}
-            title={project.name}
-            description={
-              <ProjectDescription
-                project={project}
-                onOpenGallery={() => openGallery(project)}
-              />
-            }
-            header={
-              <div className='relative -mx-4 -mt-4 mb-2 overflow-hidden border-b border-border/40 bg-muted/40'>
-                {project.imageSrc ? (
-                  <div className='relative aspect-[16/9] w-full'>
-                    <Image
-                      src={project.imageSrc}
-                      alt={project.name}
-                      fill
-                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                      className='object-contain p-2 transition-transform duration-500 group-hover:scale-[1.01]'
-                    />
-                  </div>
-                ) : (
-                  <div className='aspect-[16/9] w-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center text-5xl font-display opacity-30'>
-                    {project.name.charAt(0)}
-                  </div>
-                )}
+            className='group relative flex flex-col overflow-hidden rounded-3xl border border-border/70 bg-background/90 shadow-[0_8px_30px_hsl(var(--foreground)/0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_hsl(var(--foreground)/0.14)] sm:col-span-1 lg:col-span-4'
+          >
+            <div className='pointer-events-none absolute -left-24 -top-24 h-44 w-44 rounded-full bg-primary/10 blur-3xl transition-opacity duration-500 group-hover:opacity-80' />
+            <div className='relative overflow-hidden border-b border-border/50 bg-muted/30'>
+              <div className='absolute left-3 top-3 z-10 rounded-full border border-white/30 bg-black/45 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur'>
+                Project {i + 1}
               </div>
-            }
-            className={`${i === 3 || i === 6 ? "md:col-span-2" : ""} overflow-hidden`}
-            icon={
-              <div className='flex gap-2 mb-2 items-center'>
+              {project.imageSrc ? (
+                <div className='relative w-full aspect-[16/9]'>
+                  <Image
+                    src={project.imageSrc}
+                    alt={project.name}
+                    fill
+                    sizes='(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw'
+                    className='object-cover transition-transform duration-500 group-hover:scale-[1.05]'
+                  />
+                </div>
+              ) : (
+                <div className='flex aspect-[16/9] w-full items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10 text-5xl font-display opacity-30'>
+                  {project.name.charAt(0)}
+                </div>
+              )}
+              <div className='pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/35 to-transparent' />
+            </div>
+
+            <div className='relative z-10 flex h-full flex-col space-y-4 p-5 md:p-6'>
+              <div className='flex flex-wrap gap-2'>
                 {project.techStacks
                   .split(/,|and/)
-                  .slice(0, 3)
+                  .slice(0, 4)
                   .map((t, idx) => (
                     <span
                       key={idx}
-                      className='text-[10px] font-mono bg-primary/10 text-primary px-2 py-1 rounded-full border border-primary/20'
+                      className='rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 text-[10px] font-mono text-primary'
                     >
                       {t.trim()}
                     </span>
                   ))}
               </div>
-            }
-          />
+
+              <h3 className='font-display text-xl font-bold text-foreground'>
+                {project.name}
+              </h3>
+
+              <div>
+                <ProjectDescription
+                  project={project}
+                  onOpenGallery={() => openGallery(project)}
+                />
+              </div>
+            </div>
+          </article>
         ))}
-      </BentoGrid>
+      </div>
 
       {activeGallery && (
         <div
@@ -232,7 +243,7 @@ function ProjectDescription({
 
   return (
     <div className='relative z-20'>
-      <p className='text-sm text-muted-foreground leading-relaxed'>
+      <p className='text-sm leading-relaxed text-muted-foreground'>
         {isExpanded || !shouldTruncate ? text : `${text.slice(0, 120)}...`}
       </p>
       {shouldTruncate && (
@@ -241,17 +252,17 @@ function ProjectDescription({
             e.stopPropagation();
             setIsExpanded(!isExpanded);
           }}
-          className='text-xs font-bold text-primary mt-1 hover:underline focus:outline-none'
+          className='mt-1 text-xs font-semibold text-primary hover:underline focus:outline-none'
         >
           {isExpanded ? "Show Less" : "Read More"}
         </button>
       )}
 
-      <div className='mt-3 flex flex-wrap gap-2'>
+      <div className='mt-4 flex flex-wrap gap-2.5'>
         <button
           type='button'
           onClick={onOpenGallery}
-          className='inline-flex items-center gap-1 rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary hover:bg-primary/15'
+          className='inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/15'
         >
           Screenshots
         </button>
@@ -261,7 +272,7 @@ function ProjectDescription({
             href={project.liveLink}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 hover:bg-emerald-500/15 dark:text-emerald-400'
+            className='inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-500/15 dark:text-emerald-400'
           >
             <ExternalLink className='h-3.5 w-3.5' />
             Live
@@ -272,7 +283,7 @@ function ProjectDescription({
           href={project.githubLink}
           target='_blank'
           rel='noopener noreferrer'
-          className='inline-flex items-center gap-1 rounded-md border border-neutral-400/30 bg-neutral-500/10 px-2.5 py-1 text-[11px] font-semibold text-neutral-700 hover:bg-neutral-500/15 dark:text-neutral-300'
+          className='inline-flex items-center gap-1.5 rounded-lg border border-neutral-400/30 bg-neutral-500/10 px-3 py-1.5 text-xs font-semibold text-neutral-700 transition-colors hover:bg-neutral-500/15 dark:text-neutral-300'
         >
           <Github className='h-3.5 w-3.5' />
           GitHub
