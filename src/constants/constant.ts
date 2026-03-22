@@ -136,6 +136,32 @@ export const socialLinks: SocialLink[] = [
 
 export const projectsData: Project[] = [
   {
+    id: 6,
+    name: "E-Commerce Agency Platform",
+    imageSrc:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    gallery: [
+      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    ],
+    techStacks: "AWS Lambda, SQS, Node.js/NestJS, React, Capacitor",
+    description:
+      "Built a full-stack e-commerce platform with role-based access (Admin, Employee, User), secure authentication, AWS SQS + Lambda image processing, and a responsive admin dashboard for products, users, and orders. Added a Capacitor mobile application for cross-platform deployment.",
+    githubLink: "https://github.com/Anshulsharmacode/E-commerce-agency",
+  },
+  {
+    id: 7,
+    name: "AI Agent",
+    imageSrc:
+      "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
+    gallery: [
+      // "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
+    ],
+    techStacks: "Ollama, LangChain, Python, Whisper, LLMs",
+    description:
+      "Developed a local AI agent for voice and text interaction with tool-calling using Ollama and LangChain. Implemented function-calling for file operations, web search, command execution, and task planning, with Whisper STT logging and a secure command-execution sandbox.",
+    githubLink: "https://github.com/Anshulsharmacode/Voice_Agent",
+  },
+  {
     id: 1,
     name: "PDF Chatbot using RAG and LLM",
     imageSrc:
@@ -217,6 +243,19 @@ export const projectsData: Project[] = [
       "Interactive decision-making web app built with React Flow and AI-based suggestions, ending with personalized recommendations.",
     githubLink: "https://github.com/Anshulsharmacode/react-flow",
     liveLink: "https://react-flow-orcin.vercel.app/",
+  },
+  {
+    id: 8,
+    name: "AI Agent",
+    imageSrc:
+      "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
+    gallery: [
+      // "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
+    ],
+    techStacks: "Ollama, LangChain, Python    , LLMs",
+    description:
+      "This is my first Agentic AI project. Small demo agent that uses LangChain + Google Generative AI (Gemini) to run tools. Primary purpose: demo registering a simple tool (open_webpage) and invoking an LLM-backed agent.",
+    githubLink: "https://github.com/Anshulsharmacode/First_Agentic_AI",
   },
 ];
 
