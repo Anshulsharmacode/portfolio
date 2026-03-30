@@ -368,7 +368,7 @@ export const internshipData = [
   {
     role: "Software Development Engineer Intern",
     companyName: "AI Caller",
-    fromDate: "May 2025",
+    fromDate: "March 2025",
     toDate: "Present",
     modeOfWork: "Internship",
     workDone: [
