@@ -1,7 +1,11 @@
 # Anshul Sharma Portfolio
 
-A modern developer portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
-This site showcases projects, technical skills, contributions, and internship experience.
+## Who is Anshul?
+
+Anshul Sharma is a Full Stack Developer and GenAI builder who loves turning ideas into real, usable products.
+He works across React/Next.js and Node.js backends, and actively builds AI-powered applications using RAG, LLM workflows, LangChain, Ollama, and Gemini.
+
+This portfolio is a collection of his projects, technical skills, and real-world experience from internships and freelance work.
 
 ## Highlights
 
