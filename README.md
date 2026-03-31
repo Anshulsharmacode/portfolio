@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Anshul Sharma Portfolio
 
-## Getting Started
+A modern developer portfolio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+This site showcases projects, technical skills, contributions, and internship experience.
 
-First, run the development server:
+## Highlights
+
+- 8 featured projects (Full Stack, GenAI, ML, and interactive apps)
+- 7 skill categories
+- 2 active experience timelines (internship + freelancing)
+- 4 social platforms linked directly from the portfolio
+
+## Data-Driven Content
+
+Portfolio content is managed from a single source:
+
+- `src/constants/constant.ts`
+
+This file provides:
+
+- `projectsData` for project cards and details
+- `skillCategories` for grouped skill sections
+- `internshipData` for experience timeline
+- `socialLinks` for footer/contact links
+- `navigationItems` and `links` for site navigation
+
+## Featured Projects
+
+- E-Commerce Agency Platform
+- AI Agent
+- PDF Chatbot using RAG and LLM
+- Medicine Chatbot using RAG and LLM
+- Mysterious Message App
+- Lung Cancer Classification (Major Project)
+- React Flow Interactive Guide
+- First AI Agent
+
+## Skills Snapshot
+
+- Full Stack: React, Next.js, Node.js, NestJS, Django, FastAPI
+- Gen AI: RAG, LLM integration, LangChain, Agentic AI, Ollama, Gemini
+- ML (Basics): Machine learning fundamentals
+- API Integration: REST, GraphQL, Axios/Fetch, Postman, Swagger, Auth flows
+- Cloud (Basic): AWS, GCP, Docker, CI/CD, Firebase
+- Database: MongoDB, MySQL, PostgreSQL, Astra DB
+- Tools: GitHub, VS Code, Docker, Postman
+
+## Experience
+
+- Software Development Engineer Intern at AI Caller (March 2025 - Present)
+- Freelance Full Stack Developer (Jan 2024 - Present)
+
+## Tech Stack
+
+- Next.js 15
+- React 18
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React + React Icons
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build and Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```text
+src/
+  app/
+    page.tsx
+    api/leetcode/route.ts
+  components/
+    sections/
+  constants/
+    constant.ts
+```
 
-## Deploy on Vercel
+## Social Links
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- GitHub: https://github.com/Anshulsharmacode
+- LinkedIn: https://linkedin.com/in/anshul-sharma-8386ansh
+- X: https://x.com/Anshulsh8386
+- Medium: https://medium.com/@anshulsharmasde
