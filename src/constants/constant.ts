@@ -150,7 +150,7 @@ export const projectsData: Project[] = [
   },
   {
     id: 7,
-    name: "AI Agent",
+    name: "Tool-calling voice/text agent",
     imageSrc:
       "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
     gallery: [
