@@ -368,17 +368,15 @@ export const internshipData = [
   {
     role: "Software Development Engineer Intern",
     companyName: "AI Caller",
-    fromDate: "March 2025",
-    toDate: "Present",
+    fromDate: "April 2025",
+    toDate: "June 2025",
     modeOfWork: "Internship",
     workDone: [
       // "Updated the internal flow-builder by experimenting with XState orchestration and later migrating to Pipecat for a more maintainable workflow.",
       // "Worked with distributed task processing where jobs enter SQS and are handled by worker services for call flow execution.",
-      "Managed duplicate call events in SQS by removing redundant jobs and triggering automated notifications for clean pipelines.",
-      "Implemented MongoDB aggregation pipelines to extract structured information from uploaded documents and expand the knowledge base.",
-      "Added REST API endpoints and backend logic to support new UI features and overall workflow usability.",
-      "Built workflow cloning to duplicate configurations, rules, and metadata with safe validation.",
-      "Developed a Firebase-based app with billing dashboard and secure workflow-management interfaces.",
+      "Built a Firebase web app with an inbuilt billing dashboard and workflow management for 3 user types (Admin,Manager, Employee), with secure login and data storage via Firestore.",
+      "Added REST API endpoints and backend logic to support new UI features and improve overall workflow usability.",
+      "Developed a workflow-cloning process that duplicated configurations, rules, and metadata with safe validation,",
     ],
     TechStack: [
       "XState",
@@ -392,6 +390,7 @@ export const internshipData = [
       "Gen Ai",
     ],
   },
+
   {
     role: "Freelance Full Stack Developer",
     companyName: "Self-Employed",
