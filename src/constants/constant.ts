@@ -136,6 +136,17 @@ export const socialLinks: SocialLink[] = [
 
 export const projectsData: Project[] = [
   {
+    id: 7,
+    name: "WebAgent – AI Website Builder",
+    imageSrc:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    gallery: [],
+    techStacks: "SQS, Node.js/NestJS, React, Django",
+    description:
+      "Built an AI-powered website builder that transforms natural-language prompts into fully functional websites (HTML, CSS, JS), using a Django REST backend with Google Gemini for code generation and conversational updates, serving sites live via Docker and Nginx with instant redeployment, while securely sandboxing all AI-generated code in isolated Docker containers to prevent host machine, filesystem, or network access.",
+    githubLink: "https://github.com/Anshulsharmacode/WebAgent",
+  },
+  {
     id: 6,
     name: "E-Commerce Agency Platform",
     imageSrc:
@@ -152,6 +163,7 @@ export const projectsData: Project[] = [
     description:
       "Built a full-stack e-commerce platform with role-based access (Admin, Employee, User), secure authentication, AWS SQS + Lambda image processing, and a responsive admin dashboard for products, users, and orders. Added a Capacitor mobile application for cross-platform deployment.",
     githubLink: "https://github.com/Anshulsharmacode/E-commerce-agency",
+    liveLink: " https://e-commerce-agency.vercel.app/",
   },
   {
     id: 7,

@@ -1,143 +1,171 @@
 "use client";
-import { internshipData } from "@/constants/constant";
+import { internshipData, Internship } from "@/constants/constant";
 import { Scribble } from "@/components/vectors";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { ChevronDown, Calendar, Briefcase, Sparkles } from "lucide-react";
 
 export function Experience() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
+  const toggleAccordion = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <section
       id='experience'
-      className='rounded-3xl border border-border/70 bg-card/40 px-5 py-16 backdrop-blur-md md:px-8 md:py-20 relative overflow-hidden'
+      className='rounded-[2.5rem] border border-border/70 bg-card/40 px-4 py-16 backdrop-blur-md md:px-8 md:py-24 relative overflow-hidden'
     >
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className='max-w-5xl mx-auto relative z-10'>
+      {/* Dynamic Background decoration */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[20rem] h-[20rem] bg-secondary/5 rounded-full blur-[80px] pointer-events-none" />
+      
+      <div className='max-w-4xl mx-auto relative z-10'>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className='flex flex-col items-center mb-20 text-center'
+          className='flex flex-col items-center mb-12 md:mb-20 text-center'
         >
-          <div className="flex items-center gap-4 mb-2">
-            <h2 className='text-4xl md:text-5xl font-display font-bold tracking-tight'>Work Experience</h2>
-            <Scribble className='w-20 md:w-24 text-primary opacity-80' />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+            <Sparkles className="w-3.5 h-3.5" />
+            My Journey
           </div>
-          <p className="text-muted-foreground max-w-lg">My professional journey and contract contributions in the software industry.</p>
+          <div className="flex flex-col items-center gap-2 mb-6">
+            <h2 className='text-4xl md:text-6xl font-display font-bold tracking-tight'>Work Experience</h2>
+            <Scribble className='w-24 md:w-32 text-primary opacity-60' />
+          </div>
+          <p className="text-muted-foreground text-base md:text-xl max-w-xl leading-relaxed">
+            Professional roles and contract work where I&apos;ve built scalable systems and AI-powered solutions.
+          </p>
         </motion.div>
 
-        <div className='relative'>
-          {/* Center Line (Desktop) with Gradient */}
-          <div className='absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-border/60 to-transparent md:-translate-x-1/2' />
-
-          <div className='space-y-16 md:space-y-24'>
-            {internshipData.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 group ${
-                  i % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Content Half */}
-                <div className='md:w-1/2 ml-16 md:ml-0 md:px-10'>
-                  <div
-                    className={`p-6 md:p-8 bg-card/50 border border-border/80 rounded-[2rem] shadow-xl hover:shadow-primary/5 hover:border-primary/30 transition-all duration-500 relative backdrop-blur-sm ${
-                      i % 2 === 0 ? "md:text-left" : "md:text-right"
-                    }`}
-                  >
-                    {/* Subtle Glow Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]" />
-
-                    {/* Arrow styling */}
-                    <div
-                      className={`absolute top-10 w-4 h-4 bg-card border-border rotate-45 
-                              md:block hidden
-                              ${
-                                i % 2 === 0
-                                  ? "-left-2 border-l border-b"
-                                  : "-right-2 border-r border-t"
-                              }
-                           `}
-                    />
-                    {/* Mobile Arrow */}
-                    <div className='md:hidden absolute top-10 -left-2 w-4 h-4 bg-card border-l border-b border-border rotate-45' />
-
-                    <div
-                      className={`flex flex-col gap-1 relative z-10 ${
-                        i % 2 !== 0 ? "md:items-end" : ""
-                      }`}
-                    >
-                      <div className={`flex items-center gap-3 mb-1 flex-wrap ${i % 2 !== 0 ? "md:flex-row-reverse" : ""}`}>
-                        <h3 className='text-2xl font-bold font-display tracking-tight'>
-                          {item.role}
-                        </h3>
-                        <span className="text-[10px] uppercase tracking-widest bg-primary/10 text-primary px-2.5 py-1 rounded-full font-bold">
-                          {item.modeOfWork}
-                        </span>
-                      </div>
-                      
-                      <p className='text-lg font-semibold text-primary/90'>
-                        {item.companyName}
-                      </p>
-                      
-                      <span className={`font-mono text-xs text-muted-foreground/80 mb-6 flex items-center gap-2 ${i % 2 !== 0 ? "md:flex-row-reverse" : ""}`}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-                        {item.fromDate} — {item.toDate}
-                      </span>
-                    </div>
-
-                    <ul
-                      className={`space-y-3 text-sm md:text-[15px] text-muted-foreground/90 relative z-10 ${
-                        i % 2 !== 0 ? "md:flex md:flex-col md:items-end" : ""
-                      }`}
-                    >
-                      {item.workDone.map((w, idx) => (
-                        <li key={idx} className={`leading-relaxed flex gap-3 ${i % 2 !== 0 ? "flex-row-reverse text-right" : ""}`}>
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0 opacity-40" />
-                          <span>{w}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {item.TechStack.length > 0 && (
-                      <div
-                        className={`mt-8 flex flex-wrap gap-2 relative z-10 ${
-                          i % 2 !== 0 ? "md:justify-end" : ""
-                        }`}
-                      >
-                        {item.TechStack.map((tech, idx) => (
-                          <span
-                            key={idx}
-                            className='text-[10px] font-mono bg-background/50 border border-border px-3 py-1 rounded-full group-hover:border-primary/20 group-hover:bg-primary/5 transition-all duration-300'
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Center Bead */}
-                <div className='absolute left-8 md:left-1/2 -translate-x-1/2 top-10 flex items-center justify-center'>
-                   <div className='w-5 h-5 rounded-full bg-background border-2 border-border flex items-center justify-center z-10 group-hover:border-primary transition-colors duration-500 shadow-sm'>
-                    <div className='w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-500' />
-                  </div>
-                  <div className="absolute w-12 h-12 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-
-                {/* Empty Half for spacing */}
-                <div className='md:w-1/2 hidden md:block' />
-              </motion.div>
-            ))}
-          </div>
+        <div className='space-y-4 md:space-y-6'>
+          {internshipData.map((item, i) => (
+            <ExperienceAccordionItem
+              key={i}
+              item={item}
+              isOpen={expandedIndex === i}
+              onToggle={() => toggleAccordion(i)}
+              index={i}
+            />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ExperienceAccordionItem({ 
+  item, 
+  isOpen, 
+  onToggle,
+  index 
+}: { 
+  item: Internship; 
+  isOpen: boolean; 
+  onToggle: () => void;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className={`group overflow-hidden rounded-3xl border transition-all duration-500 ${
+        isOpen 
+          ? "border-primary/40 bg-primary/[0.03] shadow-2xl shadow-primary/5 ring-1 ring-primary/20" 
+          : "border-border/60 bg-background/20 hover:border-primary/30 hover:bg-background/40"
+      }`}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full text-left p-6 md:p-8 flex items-start md:items-center justify-between gap-4 select-none"
+      >
+        <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 flex-1 min-w-0">
+          <div className="flex flex-col min-w-0">
+            <h3 className={`text-xl md:text-2xl font-bold font-display transition-colors duration-300 truncate ${isOpen ? "text-primary" : "text-foreground"}`}>
+              {item.role}
+            </h3>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium mt-1.5">
+              <span className="text-primary font-bold">{item.companyName}</span>
+              <span className="hidden md:block w-1 h-1 rounded-full bg-border" />
+              <span className="text-muted-foreground/80 px-2 py-0.5 rounded-md bg-muted/50 border border-border/50 text-[11px] md:text-xs uppercase tracking-wider font-bold">
+                {item.modeOfWork}
+              </span>
+            </div>
+          </div>
+          
+          <div className="md:ml-auto flex items-center shrink-0">
+            <div className="flex items-center gap-2 text-[11px] md:text-xs font-mono text-muted-foreground font-medium bg-background/60 px-4 py-1.5 rounded-full border border-border/60 group-hover:border-primary/20 transition-colors">
+              <Calendar className="w-3.5 h-3.5 text-primary/70" />
+              <span className="whitespace-nowrap">{item.fromDate} — {item.toDate}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={`shrink-0 w-10 h-10 rounded-2xl border border-border flex items-center justify-center transition-all duration-500 ${isOpen ? "rotate-180 bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/30" : "text-muted-foreground bg-background group-hover:border-primary/40 group-hover:text-primary"}`}>
+          <ChevronDown className="w-5 h-5" />
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="px-6 pb-8 md:px-8 md:pb-10 pt-0 border-t border-primary/10">
+              <div className="mt-8 space-y-8">
+                <div>
+                  <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-primary/80 mb-5 flex items-center gap-2.5">
+                    <div className="w-4 h-[1px] bg-primary/30" />
+                    <Briefcase className="w-3.5 h-3.5" />
+                    Contributions & Impact
+                  </h4>
+                  <ul className="grid grid-cols-1 gap-4">
+                    {item.workDone.map((bullet, idx) => (
+                      <motion.li 
+                        key={idx}
+                        initial={{ opacity: 0, x: -15 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.15 + (idx * 0.08) }}
+                        className="flex gap-4 text-sm md:text-base leading-relaxed text-muted-foreground/90 group/item"
+                      >
+                        <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0 group-hover/item:bg-primary group-hover/item:scale-125 transition-all duration-300" />
+                        <span className="group-hover/item:text-foreground transition-colors duration-300">{bullet}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {item.TechStack.length > 0 && (
+                  <div>
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-primary/80 mb-4 flex items-center gap-2.5">
+                      <div className="w-4 h-[1px] bg-primary/30" />
+                      Core Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2.5">
+                      {item.TechStack.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3.5 py-1.5 text-[11px] font-mono rounded-xl border border-border bg-background/40 text-muted-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all duration-300 cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

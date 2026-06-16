@@ -259,13 +259,15 @@ function ProjectDescription({
       )}
 
       <div className='mt-4 flex flex-wrap gap-2.5'>
-        <button
-          type='button'
-          onClick={onOpenGallery}
-          className='inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/15'
-        >
-          Screenshots
-        </button>
+        {project.gallery && project.gallery.length > 0 && (
+          <button
+            type='button'
+            onClick={onOpenGallery}
+            className='inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/15'
+          >
+            Screenshots
+          </button>
+        )}
 
         {project.liveLink && (
           <a
@@ -279,15 +281,17 @@ function ProjectDescription({
           </a>
         )}
 
-        <a
-          href={project.githubLink}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='inline-flex items-center gap-1.5 rounded-lg border border-neutral-400/30 bg-neutral-500/10 px-3 py-1.5 text-xs font-semibold text-neutral-700 transition-colors hover:bg-neutral-500/15 dark:text-neutral-300'
-        >
-          <Github className='h-3.5 w-3.5' />
-          GitHub
-        </a>
+        {project.githubLink && (
+          <a
+            href={project.githubLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center gap-1.5 rounded-lg border border-neutral-400/30 bg-neutral-500/10 px-3 py-1.5 text-xs font-semibold text-neutral-700 transition-colors hover:bg-neutral-500/15 dark:text-neutral-300'
+          >
+            <Github className='h-3.5 w-3.5' />
+            GitHub
+          </a>
+        )}
       </div>
     </div>
   );
