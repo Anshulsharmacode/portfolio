@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { fetchBlogPosts, type BlogPost } from "@/app/api/blog/route";
+import { BlogPost, fetchBlogPosts } from "@/lib/blog";
 import { Scribble, Arrow } from "@/components/vectors";
 
 export function Blog() {
@@ -51,7 +51,8 @@ export function Blog() {
             </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl">
-            Surgical insights on Full Stack Development, AI Engineering, and modern software architecture.
+            Surgical insights on Full Stack Development, AI Engineering, and
+            modern software architecture.
           </p>
         </div>
         <Arrow className="hidden md:block h-24 w-24 rotate-90 text-primary" />
@@ -63,7 +64,10 @@ export function Blog() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 lg:row-span-2 h-[600px] rounded-3xl bg-muted animate-pulse" />
             {[1, 2].map((i) => (
-              <div key={i} className="h-[290px] rounded-3xl bg-muted animate-pulse" />
+              <div
+                key={i}
+                className="h-[290px] rounded-3xl bg-muted animate-pulse"
+              />
             ))}
           </div>
         )}
@@ -95,7 +99,7 @@ export function Blog() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
+
                   <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
                     <span className="mb-4 w-fit rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur-md border border-primary/30">
                       Featured Post
@@ -137,13 +141,13 @@ export function Blog() {
                   />
                   <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0" />
                 </div>
-                
+
                 <div className="flex flex-1 flex-col p-6">
                   <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
                     {new Date(post.pubDate).toLocaleDateString(undefined, {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric'
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
                     })}
                   </span>
                   <h3 className="line-clamp-2 font-display text-xl font-bold transition-colors group-hover:text-primary">
