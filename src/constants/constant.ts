@@ -364,7 +364,7 @@ export const navigationItems = [
   { to: "/contact", text: "CONTACT", icon: LucidePhoneCall },
 ];
 
-export const internshipData = [
+export const internshipData: Internship[] = [
   {
     role: "Software Development Engineer",
     companyName: "AI Caller",
@@ -418,6 +418,20 @@ export const internshipData = [
       "LLM",
       "Gen Ai",
     ],
+  },
+  {
+    role: "Contract Work",
+    companyName: "OCS Agriculture",
+    fromDate: "Dec 2025",
+    toDate: "Jan 2026",
+    modeOfWork: "Contract",
+    workDone: [
+      "Built a field management platform with an inbuilt CRM for 6 user types (Admin, Editor, Dealer, and 3 employee roles), shipped in under 1 month with SSO login and secured APIs.",
+      "Launched a cross-platform mobile app using Vite and Capacitor, crossed 500+ installs within the first month.",
+      "Built a quotation workflow where unassigned dealer requests automatically reach the admin, keeping every lead tracked and assigned without manual follow-up.",
+      "Deployed the solution to production ensuring high availability and seamless user onboarding.",
+    ],
+    TechStack: ["React", "Vite", "Capacitor", "Node.js", "SSO", "CRM"],
   },
 
   {
