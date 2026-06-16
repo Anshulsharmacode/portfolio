@@ -152,6 +152,7 @@ export const projectsData: Project[] = [
     description:
       "Built a full-stack e-commerce platform with role-based access (Admin, Employee, User), secure authentication, AWS SQS + Lambda image processing, and a responsive admin dashboard for products, users, and orders. Added a Capacitor mobile application for cross-platform deployment.",
     githubLink: "https://github.com/Anshulsharmacode/E-commerce-agency",
+    liveLink: " https://e-commerce-agency.vercel.app/",
   },
   {
     id: 7,
