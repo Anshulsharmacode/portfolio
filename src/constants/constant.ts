@@ -317,10 +317,10 @@ export const skillCategories = [
     title: "Cloud (Basic)",
     icon: SiServerfault,
     skills: [
-      { icon: SiServerfault, label: "AWS (EC2, S3, IAM Basics)" },
+      { icon: SiServerfault, label: "AWS (EC2, S3, IAM )" },
       { icon: SiGooglecloud, label: "Google Cloud (Compute Engine, Storage)" },
-      { icon: SiDocker, label: "Containerization Basics (Docker)" },
-      { icon: SiGithubactions, label: "CI/CD Basics" },
+      { icon: SiDocker, label: "Containerization (Docker)" },
+      { icon: SiGithubactions, label: "CI/CD " },
       { icon: SiNodedotjs, label: "Cloud Deployment (Node.js Apps)" },
       { icon: SiFirebase, label: "FireBase" },
     ],
