@@ -366,6 +366,35 @@ export const navigationItems = [
 
 export const internshipData = [
   {
+    role: "Software Development Engineer",
+    companyName: "AI Caller",
+    fromDate: "june 2025",
+    toDate: "Present",
+    modeOfWork: "Full-Time",
+    workDone: [
+      // "Updated the internal flow-builder by experimenting with XState orchestration and later migrating to Pipecat for a more maintainable workflow.",
+      // "Worked with distributed task processing where jobs enter SQS and are handled by worker services for call flow execution.",
+      "Re-architected a React Flow orchestration engine from branch-heavy control logic to a deterministic state-machine runtime with explicit transition contracts.",
+      "Engineered a bulk-call failure detection mechanism that monitors job completion status and triggers automated email notifications upon failure.",
+
+      "Built a call analytics pipeline that aggregates call-level data into structured metrics capturing outcomes, durations, and failure patterns to surface operational visibility across the system",
+      "Resolved duplicate call events in the SQS queue by identifying repeated jobs, removing redundant entries, and triggering automated notifications to maintain pipeline integrity.",
+      "Implemented backend features using MongoDB aggregation pipelines to extract and structure information from uploaded documents, expanding the system knowledge base.",
+      "Integrated LLM-powered document processing to intelligently parse and interpret unstructured content, enabling context-aware information retrieval across the knowledge base.",
+    ],
+    TechStack: [
+      "XState",
+      "Pipecat",
+      "AWS SQS",
+      "MongoDB",
+      "Firebase",
+      "Node.js",
+      "REST APIs",
+      "LLM",
+      "Gen Ai",
+    ],
+  },
+  {
     role: "Software Development Engineer Intern",
     companyName: "AI Caller",
     fromDate: "April 2025",
