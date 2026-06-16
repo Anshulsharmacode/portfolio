@@ -141,7 +141,12 @@ export const projectsData: Project[] = [
     imageSrc:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
     gallery: [
-      // "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+      "/e-com-img/2.png",
+      "/e-com-img/1.png",
+      "/e-com-img/3.png",
+      "/e-com-img/4.png",
+      "/e-com-img/5.png",
+      "/e-com-img/6.png",
     ],
     techStacks: "AWS Lambda, SQS, Node.js/NestJS, React, Capacitor",
     description:
@@ -153,9 +158,7 @@ export const projectsData: Project[] = [
     name: "Tool-calling voice/text agent",
     imageSrc:
       "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
-    gallery: [
-      // "https://images.unsplash.com/photo-1677442135136-760c813028c0?auto=format&fit=crop&w=1600&q=80",
-    ],
+    gallery: [],
     techStacks: "Ollama, LangChain, Python, Whisper, LLMs",
     description:
       "Developed a local AI agent for voice and text interaction with tool-calling using Ollama and LangChain. Implemented function-calling for file operations, web search, command execution, and task planning, with Whisper STT logging and a secure command-execution sandbox.",
