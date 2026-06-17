@@ -16,11 +16,12 @@ export default function Home() {
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <Hero />
         <div className="space-y-8 pb-12 md:space-y-10 md:pb-16">
+          <Experience />
+
           <Work />
           <Blog />
           <Contributions />
           <Skills />
-          <Experience />
         </div>
       </div>
       <Footer />

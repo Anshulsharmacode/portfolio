@@ -13,7 +13,6 @@ import {
   SiJavascript,
   SiTypescript,
   SiHtml5,
-  SiCss3,
   SiReact,
   SiNodedotjs,
   SiBun,
@@ -26,7 +25,6 @@ import {
   SiHashnode,
   SiInstagram,
   SiLeetcode,
-  SiLinkedin,
   SiMedium,
   SiX,
   SiFiverr,
@@ -59,6 +57,7 @@ import {
   LucidePhoneCall,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { FaSearch, FaLinkedin } from "react-icons/fa";
 
 // =============================================================================
 // TYPE DEFINITIONS
@@ -119,7 +118,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     href: "https://linkedin.com/in/anshul-sharma-8386ansh",
-    icon: SiLinkedin,
+    icon: FaLinkedin,
     label: "LinkedIn",
   },
   { href: "https://x.com/Anshulsh8386", icon: SiX, label: "X (Twitter)" },
@@ -349,6 +348,7 @@ export const skillCategories = [
       { icon: SiMysql, label: "MySQL (Relational DB)" },
       { icon: SiPostgresql, label: "PostgreSQL" },
       { icon: SiAstra, label: "Astra DB(Vector DB)" },
+      { icon: FaSearch, label: "Typesense" },
 
       // { icon: SiMongodb, label: "Mongo" },
       // { icon: SiMysql, label: "Database Design & Normalization" },
