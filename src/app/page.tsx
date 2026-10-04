@@ -18,7 +18,7 @@ export default function Home() {
         <div className="space-y-8 pb-12 md:space-y-10 md:pb-16">
           <Experience />
 
-          <Work />
+          <Work limit={3} />
           <Blog />
           <Contributions />
           <Skills />
