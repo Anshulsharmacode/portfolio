@@ -74,7 +74,8 @@ export function Hero() {
               Contact Me
             </button>
             <a
-              href="https://drive.google.com/file/d/1nS_slv3zr417Yd766Lmq2mRBvLwRlyec/view?usp=sharing"
+              // href="https://drive.google.com/file/d/1nS_slv3zr417Yd766Lmq2mRBvLwRlyec/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Jx1HCYuP33tTLKH5dn7swsfQg-D2-Cf5/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-xl border border-border bg-card/70 px-7 py-3.5 font-medium text-primary transition-colors hover:bg-primary/10"
