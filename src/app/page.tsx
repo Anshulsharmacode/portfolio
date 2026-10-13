@@ -17,9 +17,9 @@ export default function Home() {
         <Hero />
         <div className="space-y-8 pb-12 md:space-y-10 md:pb-16">
           <Experience />
+          <Blog />
 
           <Work limit={3} />
-          <Blog />
           <Contributions />
           <Skills />
         </div>

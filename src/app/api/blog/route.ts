@@ -1,24 +1,23 @@
 import { NextResponse } from "next/server";
-import { fetchBlogPosts } from "@/lib/blog";
+import { fetchMediumPosts } from "@/lib/blog";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const username = searchParams.get("username");
+  const username = new URL(request.url).searchParams.get("username");
 
-  if (!username) {
+  if (!username || !/^[a-z\d_-]+$/i.test(username)) {
     return NextResponse.json(
-      { error: "Username is required" },
+      { error: "A valid Medium username is required" },
       { status: 400 },
     );
   }
 
   try {
-    const data = await fetchBlogPosts(username);
-    return NextResponse.json(data);
+    return NextResponse.json(await fetchMediumPosts(username));
   } catch (error) {
+    console.error("Failed to fetch Medium posts:", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 },
+      { error: "Failed to fetch Medium posts" },
+      { status: 502 },
     );
   }
 }

@@ -1,34 +1,19 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { BlogPost, fetchBlogPosts } from "@/lib/blog";
-import { Scribble, Arrow } from "@/components/vectors";
+import { blogUsername, fetchMediumPosts, postDate } from "@/lib/blog";
+import { Scribble } from "@/components/vectors";
 
-export function Blog() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export async function Blog() {
+  let posts = [] as Awaited<ReturnType<typeof fetchMediumPosts>>;
+  let error = false;
 
-  const username = "anshulsharmasde";
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const data = await fetchBlogPosts(username);
-        setPosts(data);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load articles. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadPosts();
-  }, []);
+  try {
+    posts = (await fetchMediumPosts(blogUsername)).slice(0, 3);
+  } catch (reason) {
+    console.error("Failed to load blog posts:", reason);
+    error = true;
+  }
 
   const featuredPost = posts[0];
   const remainingPosts = posts.slice(1);
@@ -36,138 +21,132 @@ export function Blog() {
   return (
     <section
       id="blog"
-      className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 px-5 py-16 backdrop-blur-sm md:px-8 md:py-20"
+      className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/70 px-5 py-12 backdrop-blur-sm sm:px-8 md:py-16 lg:px-12"
     >
-      <div className="mx-auto mb-12 flex max-w-7xl items-end justify-between gap-8">
+      <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+      <div className="relative mx-auto mb-10 flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div className="space-y-4">
           <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Writings
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold">
+          <h2 className="font-display text-4xl font-bold md:text-5xl">
             Thoughts on{" "}
-            <span className="text-gradient relative">
+            <span className="relative text-gradient">
               Engineering
               <Scribble className="absolute -bottom-4 left-0 w-full text-secondary opacity-45" />
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl">
-            Surgical insights on Full Stack Development, AI Engineering, and
-            modern software architecture.
+          <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            Notes on full stack development, AI engineering, and the things I
+            learn while building.
           </p>
         </div>
-        <Arrow className="hidden md:block h-24 w-24 rotate-90 text-primary" />
+        <Link
+          href="/blog"
+          className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold shadow-sm transition-colors hover:border-primary/50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        >
+          View all articles <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
 
-      <div className="mx-auto max-w-7xl">
-        {/* Loading */}
-        {loading && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 lg:row-span-2 h-[600px] rounded-3xl bg-muted animate-pulse" />
-            {[1, 2].map((i) => (
-              <div
-                key={i}
-                className="h-[290px] rounded-3xl bg-muted animate-pulse"
-              />
-            ))}
+      <div className="relative mx-auto max-w-7xl">
+        {error && (
+          <div className="rounded-3xl border border-dashed border-destructive/30 bg-destructive/5 px-6 py-12 text-center">
+            <p className="font-medium text-destructive">Articles are unavailable right now.</p>
+            <a
+              href={`https://medium.com/@${blogUsername}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+            >
+              Browse on Medium <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
         )}
 
-        {/* Error */}
-        {!loading && error && (
-          <div className="text-center py-12 border border-dashed border-destructive/30 rounded-3xl bg-destructive/5">
-            <p className="text-destructive font-medium">{error}</p>
-          </div>
-        )}
-
-        {/* Bento Grid */}
-        {!loading && !error && posts.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Featured Post */}
+        {!error && posts.length > 0 && (
+          <div className="space-y-5">
             {featuredPost && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                onClick={() => window.open(featuredPost.link, "_blank")}
-                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-border/70 bg-background/90 shadow-sm transition-all duration-500 hover:shadow-xl lg:col-span-2 lg:row-span-2"
+              <a
+                href={featuredPost.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group grid overflow-hidden rounded-3xl border border-border/70 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:grid-cols-2"
               >
-                <div className="relative h-full min-h-[400px] w-full">
+                <div className="relative min-h-[260px] overflow-hidden sm:min-h-[320px]">
                   <Image
                     src={featuredPost.thumbnail}
                     alt={featuredPost.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                  <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
-                    <span className="mb-4 w-fit rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur-md border border-primary/30">
-                      Featured Post
-                    </span>
-                    <h3 className="text-3xl md:text-5xl font-display font-bold text-white leading-tight">
-                      {featuredPost.title}
-                    </h3>
-                    <p className="mt-4 line-clamp-2 max-w-2xl text-lg text-white/70">
-                      {featuredPost.subtitle}
-                    </p>
-                    <div className="mt-8 flex items-center gap-3 text-primary font-bold">
-                      Read Full Article
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 border border-primary/20 transition-transform group-hover:translate-x-2">
-                        <ArrowRight className="h-5 w-5" />
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </motion.div>
+                <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-12">
+                  <div className="mb-5 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-wider">
+                    <span className="rounded-full bg-primary/10 px-3 py-1.5 text-primary">
+                      Featured article
+                    </span>
+                    <span className="text-muted-foreground">
+                      {postDate(featuredPost.pubDate)}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl font-bold leading-tight transition-colors group-hover:text-primary sm:text-3xl lg:text-4xl">
+                    {featuredPost.title}
+                  </h3>
+                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {featuredPost.subtitle}
+                  </p>
+                  <span className="mt-7 inline-flex items-center gap-2 font-semibold text-primary">
+                    Read article
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </a>
             )}
 
-            {/* Remaining Posts */}
-            {remainingPosts.map((post, index) => (
-              <motion.article
-                key={post.link}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                onClick={() => window.open(post.link, "_blank")}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/70 bg-background/90 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
-              >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={post.thumbnail}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/10 transition-opacity group-hover:opacity-0" />
-                </div>
-
-                <div className="flex flex-1 flex-col p-6">
-                  <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
-                    {new Date(post.pubDate).toLocaleDateString(undefined, {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </span>
-                  <h3 className="line-clamp-2 font-display text-xl font-bold transition-colors group-hover:text-primary">
-                    {post.title}
-                  </h3>
-                  <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                    {post.subtitle}
-                  </p>
-                  <div className="mt-auto pt-6 flex items-center gap-2 text-xs font-bold text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-                    Read More <ArrowRight className="h-3.5 w-3.5" />
+            <div className="grid gap-5 md:grid-cols-2">
+              {remainingPosts.map((post) => (
+                <a
+                  key={post.link}
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex overflow-hidden rounded-2xl border border-border/70 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                >
+                  <div className="relative hidden w-2/5 shrink-0 overflow-hidden sm:block">
+                    <Image
+                      src={post.thumbnail}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 40vw, 20vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                </div>
-              </motion.article>
-            ))}
+
+                  <div className="flex min-h-[185px] flex-1 flex-col p-6">
+                    <span className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {postDate(post.pubDate)}
+                    </span>
+                    <h3 className="line-clamp-2 font-display text-lg font-bold leading-snug transition-colors group-hover:text-primary lg:text-xl">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                      {post.subtitle}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-xs font-bold text-primary">
+                      Read article
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         )}
 
-        {/* Empty state */}
-        {!loading && !error && posts.length === 0 && (
-          <div className="text-center py-20 border border-dashed border-border rounded-3xl">
+        {!error && posts.length === 0 && (
+          <div className="rounded-3xl border border-dashed border-border px-6 py-16 text-center">
             <p className="text-muted-foreground">No articles found yet.</p>
           </div>
         )}
