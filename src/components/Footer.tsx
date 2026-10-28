@@ -3,40 +3,39 @@ import { socialLinks } from "@/constants/constant";
 
 export function Footer() {
   return (
-    <footer className='mx-auto mb-6 mt-10 max-w-[1400px] px-4 sm:px-6 lg:px-10'>
-      <div className='rounded-3xl border border-border/70 bg-foreground px-6 py-16 text-background md:px-10 md:py-20'>
+    <footer className='mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10'>
+      <div className='mx-auto max-w-6xl border-t border-border/60 py-16 md:py-28'>
         <div className='max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12'>
           <div className='space-y-6'>
-            <h2 className='text-6xl md:text-8xl font-display font-bold tracking-tight'>
+            <h2 className='text-6xl font-black leading-[0.98] tracking-[-0.055em] md:text-8xl'>
               Be in
               <br />
-              Touch.
+              <span className="text-[#adadab]">Touch.</span>
             </h2>
             <a
               href='mailto:anshulsharma8386@gmail.com'
-              className='inline-block text-xl border-b border-background/20 pb-1 hover:border-background transition-colors'
+              className='inline-block max-w-full break-all border-b border-border pb-1 text-base transition-colors hover:border-foreground sm:text-xl'
             >
               anshulsharma8386@gmail.com
             </a>
           </div>
 
-          <div className='flex flex-wrap gap-4'>
+          <div className='flex flex-wrap gap-x-6 gap-y-2'>
             {socialLinks.map((link, i) => (
               <a
                 key={i}
                 href={link.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='px-6 py-3 rounded-full border border-background/20 hover:bg-background hover:text-foreground transition-all flex items-center gap-2 group'
+                className='text-link'
               >
                 <span>{link.label}</span>
               </a>
             ))}
           </div>
         </div>
-        <div className='max-w-7xl mx-auto mt-14 pt-6 border-t border-background/10 flex justify-between text-sm text-background/60 font-mono'>
+        <div className='mx-auto mt-14 flex flex-wrap justify-between gap-3 border-t border-border pt-6 text-sm text-muted-foreground'>
           <p>© {new Date().getFullYear()} Anshul Sharma</p>
-          <p>Crafted with code.</p>
         </div>
       </div>
     </footer>

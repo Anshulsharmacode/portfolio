@@ -393,6 +393,7 @@ export const internshipData: Internship[] = [
     modeOfWork: "Full-Time",
     workDone: [
       "Building AI voice-calling infrastructure: re-architected the React Flow conversation-flow builder from branch-heavy control logic into a deterministic state-machine runtime (XState, Pipecat) with explicit transition contracts, making AI call flows predictable and maintainable.",
+      "Migrated the application database from NoSQL to PostgreSQL, moving to a relational data model.",
       "Integrated LLM-powered document processing to parse and interpret unstructured uploads, using MongoDB aggregation pipelines to structure the content into a knowledge base for context-aware retrieval (RAG) by the voice agents.",
       "Built a call analytics pipeline that aggregates call-level data into structured metrics covering outcomes, durations and failure patterns, giving visibility into AI agent performance across the system.",
       "Engineered bulk-call failure detection that monitors job completion on AWS SQS workers and triggers automated email alerts when a campaign fails.",
@@ -406,6 +407,7 @@ export const internshipData: Internship[] = [
       "XState",
       "React Flow",
       "AWS SQS",
+      "PostgreSQL",
       "MongoDB",
       "Node.js",
       "Firebase",
