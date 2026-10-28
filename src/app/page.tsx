@@ -13,7 +13,7 @@ export default function Home() {
       <ModeToggle />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <Hero />
-        <div className="[&>section]:border-t [&>section]:border-border/60">
+        <div className="[&>section]:border-t-2 [&>section]:border-foreground/25">
           <Experience />
           <Blog />
 
