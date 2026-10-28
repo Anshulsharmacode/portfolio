@@ -28,7 +28,7 @@ export function Contributions() {
         </a>
       </div>
 
-      <div className="w-full border-b border-border/60 pb-9 md:pb-10">
+      <div className="w-full">
         <div className="w-full overflow-x-auto pb-2">
           <GitHubCalendar
             username="Anshulsharmacode"

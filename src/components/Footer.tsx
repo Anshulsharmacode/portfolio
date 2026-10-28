@@ -4,7 +4,7 @@ import { socialLinks } from "@/constants/constant";
 export function Footer() {
   return (
     <footer className='mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10'>
-      <div className='mx-auto max-w-6xl border-t border-border/60 py-16 md:py-28'>
+      <div className='mx-auto max-w-6xl border-t-2 border-foreground/25 py-16 md:py-28'>
         <div className='max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12'>
           <div className='space-y-6'>
             <h2 className='text-6xl font-black leading-[0.98] tracking-[-0.055em] md:text-8xl'>
