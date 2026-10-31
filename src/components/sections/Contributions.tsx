@@ -16,7 +16,7 @@ export function Contributions() {
           id="contributions-heading"
           className="text-3xl font-bold tracking-tight sm:text-4xl"
         >
-          Open Source
+          GitHub Activity
         </h2>
         <a
           href="https://github.com/Anshulsharmacode"
