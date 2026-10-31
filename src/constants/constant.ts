@@ -392,7 +392,8 @@ export const internshipData: Internship[] = [
     toDate: "Present",
     modeOfWork: "Full-Time",
     workDone: [
-      "Building AI voice-calling infrastructure: re-architected the React Flow conversation-flow builder from branch-heavy control logic into a deterministic state-machine runtime (XState, Pipecat) with explicit transition contracts, making AI call flows predictable and maintainable.",
+      "Re-architected the React Flow conversation-flow builder from branch-heavy control logic into a deterministic state-machine runtime (XState, Pipecat) with explicit transition contracts, making AI call flows predictable and maintainable.",
+      "Reduced latency by optimizing function calling to use a single LLM call instead of two.",
       "Migrated the application database from NoSQL to PostgreSQL, moving to a relational data model.",
       "Integrated LLM-powered document processing to parse and interpret unstructured uploads, using MongoDB aggregation pipelines to structure the content into a knowledge base for context-aware retrieval (RAG) by the voice agents.",
       "Built a call analytics pipeline that aggregates call-level data into structured metrics covering outcomes, durations and failure patterns, giving visibility into AI agent performance across the system.",
@@ -421,6 +422,7 @@ export const internshipData: Internship[] = [
     toDate: "Jan 2026",
     modeOfWork: "Contract",
     workDone: [
+      "Digitized the company’s entire workflow, replacing paperwork and phone-based coordination with a centralized online platform for day-to-day operations.",
       "Built a field management platform with an inbuilt CRM for 6 user types (Admin, Editor, Dealer, and 3 employee roles), shipped in under 1 month with SSO login and secured APIs.",
       "Launched a cross-platform mobile app using Vite and Capacitor, crossed 500+ installs within the first month.",
       "Built a quotation workflow where unassigned dealer requests automatically reach the admin, keeping every lead tracked and assigned without manual follow-up.",

@@ -1,4 +1,19 @@
 import { experienceDisplayData } from "@/constants/experience";
+import type { ReactNode } from "react";
+
+function emphasize(text: string, phrases: string[] = []): ReactNode {
+  const phrase = phrases.find((value) => text.includes(value));
+  if (!phrase) return text;
+
+  const index = text.indexOf(phrase);
+  return (
+    <>
+      {emphasize(text.slice(0, index), phrases)}
+      <strong className="font-semibold text-foreground">{phrase}</strong>
+      {emphasize(text.slice(index + phrase.length), phrases)}
+    </>
+  );
+}
 
 export function Experience() {
   return (
@@ -45,11 +60,11 @@ export function Experience() {
                 </div>
 
                 <p className="mt-4 max-w-4xl text-base leading-relaxed text-foreground">
-                  {item.summary}
+                  {emphasize(item.summary, item.emphasis)}
                 </p>
                 {item.additionalSummary && (
                   <p className="mt-4 max-w-4xl text-base leading-relaxed text-foreground">
-                    {item.additionalSummary}
+                    {emphasize(item.additionalSummary, item.emphasis)}
                   </p>
                 )}
 
@@ -57,7 +72,7 @@ export function Experience() {
                   {item.highlights.map((highlight) => (
                     <li key={highlight} className="flex max-w-full items-start gap-2.5">
                       <span aria-hidden="true" className="shrink-0">•</span>
-                      <span>{highlight}</span>
+                      <span>{emphasize(highlight, item.emphasis)}</span>
                     </li>
                   ))}
                 </ul>
