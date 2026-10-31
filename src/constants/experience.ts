@@ -19,14 +19,23 @@ const unintellectExperience: ExperienceDisplayItem = {
   fromDate: "",
   toDate: "",
   summary:
-    "Fine-tuned and quantized models for specific tasks and deployment on edge devices.",
-  emphasis: ["Fine-tuned and quantized models", "edge devices"],
+    "Fine-tuned machine learning models for task-specific use cases, adapting them to domain data and evaluating results against general-purpose baselines to improve accuracy on the target task.",
+  additionalSummary:
+    "Quantized trained models to cut size and memory footprint, enabling efficient on-device inference and low-latency deployment on resource-constrained edge hardware while preserving task accuracy.",
+  emphasis: [
+    "Fine-tuned machine learning models",
+    "general-purpose baselines",
+    "Quantized trained models",
+    "on-device inference",
+    "preserving task accuracy",
+  ],
   highlights: [
     "Task-specific model fine-tuning",
     "Model quantization for edge deployment",
   ],
   workDone: [
-    "Fine-tuned and quantized models for specific tasks and deployment on edge devices.",
+    "Fine-tuned machine learning models for task-specific use cases, adapting them to domain data and evaluating results against general-purpose baselines to improve accuracy on the target task.",
+    "Quantized trained models to cut size and memory footprint, enabling efficient on-device inference and low-latency deployment on resource-constrained edge hardware while preserving task accuracy.",
   ],
   TechStack: [],
 };
@@ -34,21 +43,29 @@ const unintellectExperience: ExperienceDisplayItem = {
 // Presentation copy stays separate from the original experience records.
 const experienceCopy: Record<
   string,
-  Pick<ExperienceDisplayItem, "summary" | "additionalSummary" | "emphasis" | "highlights">
+  Pick<
+    ExperienceDisplayItem,
+    "summary" | "additionalSummary" | "emphasis" | "highlights"
+  >
 > = {
   "AI Caller:Full-Time": {
     summary:
-      "Re-architected internal conversation flows using a state-machine architecture. Reduced latency by optimizing function calling to use a single LLM call instead of two. Migrated the database from NoSQL to PostgreSQL and built supporting systems for document retrieval, call analytics, and campaign delivery.",
+      "Re-architected the React Flow conversation builder into a state-machine runtime using XState and Pipecat, making AI voice-call flows predictable and maintainable. Reduced latency by optimizing function calling to use a single LLM call instead of two.",
+    additionalSummary:
+      "Migrated the application database from NoSQL to PostgreSQL and built call analytics to track outcomes, durations, and failure patterns. Implemented automated campaign failure alerts and duplicate-job detection for AWS SQS workers to improve delivery reliability.",
     emphasis: [
-      "state-machine architecture",
+      "state-machine runtime",
       "Reduced latency",
       "single LLM call instead of two",
       "NoSQL to PostgreSQL",
+      "call analytics",
+      "automated campaign failure alerts",
+      "duplicate-job detection",
     ],
     highlights: [
       "Voice-flow runtime with XState & Pipecat",
       "Single-call LLM function calling for lower latency",
-      // "Document knowledge base for RAG",
+      "Document knowledge base for RAG",
       "Call outcome & performance analytics",
       "SQS failure alerts & queue deduplication",
     ],
@@ -71,10 +88,15 @@ const experienceCopy: Record<
   },
   "AI Caller:Internship": {
     summary:
-      "Developed backend APIs and workflow cloning for AI Caller, enabling reuse of configurations, rules, and metadata with validation.",
+      "Developed backend APIs to support new application features and built workflow cloning to reuse configurations, rules, and metadata with validation, simplifying workflow setup.",
     additionalSummary:
-      "Developed a Firebase web app with billing and workflow management for three user roles, backed by secure login, Firestore storage, and REST APIs.",
-    emphasis: ["backend APIs and workflow cloning", "billing and workflow management"],
+      "Built a Firebase web app with billing and workflow management for Admin, Manager, and Employee roles, integrating secure login, Firestore storage, and REST APIs to support day-to-day operations.",
+    emphasis: [
+      "backend APIs",
+      "workflow cloning",
+      "billing and workflow management",
+      "secure login",
+    ],
     highlights: [
       "Admin, Manager & Employee workflows",
       "Billing dashboard & backend APIs",
